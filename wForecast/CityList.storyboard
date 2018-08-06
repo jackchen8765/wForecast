@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JkL-jg-3zs">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--City List View Controller-->
+        <scene sceneID="YZQ-mH-XxQ">
+            <objects>
+                <tableViewController id="veg-Ye-uLv" customClass="CityListViewController" customModule="wForecast" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9st-BQ-vfK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityListCell" rowHeight="50" id="vvK-m6-0wn" customClass="CityListTableViewCell" customModule="wForecast" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vvK-m6-0wn" id="G55-MD-60g">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSm-zO-cZo">
+                                            <rect key="frame" x="8" y="5" width="200" height="39.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="X1t-wY-P5G"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="pSm-zO-cZo" firstAttribute="leading" secondItem="G55-MD-60g" secondAttribute="leading" constant="8" id="1Zp-d8-5fG"/>
+                                        <constraint firstAttribute="bottom" secondItem="pSm-zO-cZo" secondAttribute="bottom" constant="5" id="Lat-OR-zdK"/>
+                                        <constraint firstItem="pSm-zO-cZo" firstAttribute="top" secondItem="G55-MD-60g" secondAttribute="top" constant="5" id="qda-ko-RBt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityLabel" destination="pSm-zO-cZo" id="u8r-pN-G7c"/>
+                                    <segue destination="5nc-ap-OXg" kind="unwind" unwindAction="unwindToHome:" id="jvY-tk-mRx"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="veg-Ye-uLv" id="f3K-o7-B0J"/>
+                            <outlet property="delegate" destination="veg-Ye-uLv" id="EhZ-0g-UIa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="fsF-CT-it6">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mxY-0M-yc5">
+                            <connections>
+                                <segue destination="5nc-ap-OXg" kind="unwind" unwindAction="unwindToHome:" id="Qne-eD-Nta"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yaD-9m-Zew">
+                            <connections>
+                                <action selector="addCity:" destination="veg-Ye-uLv" id="ihd-ma-eZW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="yaD-9m-Zew" id="fyc-T4-Izc"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="psM-HQ-fLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5nc-ap-OXg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="392.80000000000001" y="32.833583208395808"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3OA-0U-em5">
+            <objects>
+                <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" id="JkL-jg-3zs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xbf-zw-yle">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="veg-Ye-uLv" kind="relationship" relationship="rootViewController" id="Fkd-Wz-df6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ev4-UD-MF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-399" y="33"/>
+        </scene>
+    </scenes>
+</document>
